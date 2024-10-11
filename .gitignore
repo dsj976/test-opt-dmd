@@ -5,4 +5,4 @@ __pycache__/
 
 # Data
 data/*
-!data/data_original.mat
+!data/data.mat
