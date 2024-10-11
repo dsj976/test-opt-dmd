@@ -32,7 +32,13 @@ If you want to test running `BOPDMD` on a different dataset, you can do so using
 
 ### Running the optDMD in MATLAB
 
-If you have MATLAB installed, you can run the optDMD algorithm using the `optdmd` package, which is included in this repo as a Git submodule. To run the algorithm, start a MATLAB session in the `optdmd` directory and run the following commands:
+If you have MATLAB installed, you can run the optDMD algorithm using the `optdmd` package, which is included in this repo as a Git submodule. To clone the submodule, run the following command after cloning this repository:
+
+```bash
+git submodule update --init
+```
+
+To run the algorithm, start a MATLAB session in the `optdmd` directory and run the following commands:
 
 ```matlab
 run setup.m
