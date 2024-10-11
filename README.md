@@ -40,3 +40,21 @@ run examples/optdmd_test.m
 ```
 
 By default, the algorithm will read the pre-generated data in `data/data.mat` and run the optDMD algorithm. You will notice that in this case, the algorithm converges and accurately captures the dynamics of the data.
+
+### Running the optDMD in Python with the fixed implementation
+
+To run the optDMD algorithm in Python with the fixed implementation, clone the `PyDMD` repository from this fork:
+
+```bash
+git clone git@github.com:ClimeTrend/PyDMD.git
+```
+
+Then, install the package in editable mode:
+
+```bash
+python -m venv .venv
+source .venv/bin/activate
+pip install -e .
+```
+
+Now you can run the `bopdmd_test.py` script again, and you will notice that the algorithm converges and provides a good reconstruction of the data.
