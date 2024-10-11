@@ -1,0 +1,3 @@
+[submodule "optdmd"]
+	path = optdmd
+	url = git@github.com:ClimeTrend/optdmd.git
