@@ -14,8 +14,8 @@ import numpy as np
 # Parameters
 generate_data = False  # set to True to generate data, False to load data from file
 save_data = True  # only relevant if generate_data=True
-filename_save = "data/data.mat"  # path to save the data
-filename_load = "data/data_original.mat"  # path to load the data from, if generate_data=False
+filename_save = "data/data_new.mat"  # path to save the data, if save_data=True
+filename_load = "data/data.mat"  # path to load the data from, if generate_data=False
 plot_results = True
 
 if generate_data:
