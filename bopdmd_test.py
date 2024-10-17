@@ -17,6 +17,7 @@ save_data = True  # only relevant if generate_data=True
 filename_save = "data/data_new.mat"  # path to save the data, if save_data=True
 filename_load = "data/data.mat"  # path to load the data from, if generate_data=False
 plot_results = True
+apply_eig_constraints = False  # set to True to apply imaginary eigenvalue constraints
 
 if generate_data:
     # Create a signal generator - currently generates a signal with three sinusoids and noise
@@ -48,14 +49,27 @@ else:
 # Apply BOPDMD without bagging
 svd_rank = 6  # we have three components, so we need 6 DMD modes
 delay = 2  # apply time-delay embedding
-optdmd = BOPDMD(
-    svd_rank=svd_rank,
-    num_trials=0,
-    use_proj=True,
-    varpro_opts_dict={
-        "verbose": True,
-        },
-)
+
+if not apply_eig_constraints:
+    optdmd = BOPDMD(
+        svd_rank=svd_rank,
+        num_trials=0,
+        use_proj=True,
+        varpro_opts_dict={
+            "verbose": True,
+            },
+    )
+else:
+    optdmd = BOPDMD(
+        svd_rank=svd_rank,
+        num_trials=0,
+        use_proj=True,
+        eig_constraints={"imag"},
+        varpro_opts_dict={
+            "verbose": True,
+            },
+    )
+
 delay_optdmd = hankel_preprocessing(optdmd, d=delay)
 t_delay = t[:-delay+1]
 delay_optdmd.fit(signal.T, t=t_delay)
